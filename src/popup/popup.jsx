@@ -2,6 +2,6 @@ import React from 'react'
 
 export const Popup = () => {
   return (
-    <div>popup</div>
+    <div className="text-3xl font-bold underline">popup</div>
   )
 }
