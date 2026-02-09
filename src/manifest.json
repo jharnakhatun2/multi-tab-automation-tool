@@ -1,6 +1,6 @@
 {
-  "name": "Auto Form Filler",
-  "description": "Automatically fills forms",
+  "name": "Multi Tab Automation Tool",
+  "description": "A tool to automate tasks across multiple tabs",
   "version": "1.0.0",
   "{{chrome}}.version_name": "beta",
   "{{chrome}}.manifest_version": 3,
@@ -19,14 +19,14 @@
       "48": "icon/48.png"
     },
     "default_popup": "src/popup.html",
-    "default_title": "Auto Form Filler"
+    "default_title": "Multi Tab Automation Tool"
   },
   "{{firefox}}.browser_action": {
     "default_icon": {
       "16": "icon/16.png",
       "32": "icon/32.png"
     },
-    "default_title": "Auto Form Filler",
+    "default_title": "Multi Tab Automation Tool",
     "default_popup": "src/popup.html"
   },
   "background": {
