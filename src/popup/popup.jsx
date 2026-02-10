@@ -1,45 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react';
 
 export const Popup = () => {
-  const [url, setUrl] = useState("https://example.com");
-  const [count, setCount] = useState(5);
 
-
- const openTabs = () => {
-    chrome.runtime.sendMessage(
-      { type: "OPEN_TABS", url, count },
-      (response) => {
-        console.log(response.status);
-      }
-    );
+  const handleOpenTabs = () => {
+    chrome.runtime.sendMessage({ action: "OPEN_TABS" });
   };
 
   return (
-    <div className="w-[300px] p-4 bg-gray-100">
-      <h2 className="text-lg font-bold mb-3 text-center">
-        Multi‑Tab Automation
-      </h2>
-
-      <input
-        className="w-full p-2 mb-2 border rounded"
-        value={url}
-        onChange={(e) => setUrl(e.target.value)}
-        placeholder="Enter URL"
-      />
-      <input
-        type="number"
-        className="w-full p-2 mb-3 border rounded"
-        value={count}
-        onChange={(e) => setCount(Number(e.target.value))}
-        placeholder="Tab Count"
-      />
-
+    <div className="p-4 w-80">
+      <h1 className="text-xl font-bold mb-2">Multi Tab Product Scraper</h1>
+      <p className="mb-2 text-sm">Scrapes Product Name, Price & Rating from 10 sites</p>
       <button
-        onClick={openTabs}
-        className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+        className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600"
+        onClick={handleOpenTabs}
       >
-        Open Tabs + Run Script
+        Open & Scrape
       </button>
     </div>
-  )
-}
+  );
+};
