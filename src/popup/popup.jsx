@@ -5,18 +5,15 @@ export const Popup = () => {
   const [count, setCount] = useState(5);
 
 
-  const openTabs = () => {
-    for (let i = 0; i < count; i++) {
-      chrome.tabs.create({ url }, (tab) => {
-        setTimeout(() => {
-          chrome.scripting.executeScript({
-            target: { tabId: tab.id },
-            func: automationScript
-          });
-        }, 3000);
-      });
-    }
+ const openTabs = () => {
+    chrome.runtime.sendMessage(
+      { type: "OPEN_TABS", url, count },
+      (response) => {
+        console.log(response.status);
+      }
+    );
   };
+
   return (
     <div className="w-[300px] p-4 bg-gray-100">
       <h2 className="text-lg font-bold mb-3 text-center">
