@@ -14,7 +14,7 @@
 ];
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if(message.action === "OPEN_TABS") {
+  if(message.action === "SCRAPE_PRODUCTS") {
     openTabsAndInject();
   }
 });

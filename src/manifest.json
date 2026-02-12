@@ -1,6 +1,6 @@
 {
-  "name": "Multi Tab Automation Tool",
-  "description": "A tool to automate tasks across multiple tabs",
+  "name": "Multi-Tab Ecommerce Scraper",
+  "description": "Scrape products from multiple ecommerce tabs",
   "version": "1.0.0",
   "{{chrome}}.version_name": "beta",
   "{{chrome}}.manifest_version": 3,
@@ -30,16 +30,18 @@
     "default_popup": "src/popup.html"
   },
   "background": {
-    "{{chrome}}.service_worker": "src/background.js",
+    "{{chrome}}.service_worker": "src/background/serviceWorker.js",
     "{{firefox}}.scripts": [
-      "src/background.js"
-    ]
+      "src/background/serviceWorker.js"
+    ],
+    "type": "module"
   },
   "permissions": [
-    "storage",
-    "activeTab",
     "tabs",
-    "scripting"
+    "scripting",
+    "storage",
+    "downloads",
+    "activeTab"   
   ],
   "content_scripts": [
     {
@@ -47,7 +49,7 @@
         "<all_urls>"
       ],
       "js": [
-        "src/content.js"
+        "src/content/scraper.js"
       ],
       "css": [
         "src/content/script.css"
